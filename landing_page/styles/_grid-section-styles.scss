@@ -1,0 +1,241 @@
+$breakpoint-size: (
+    "mobile": 375px,
+    "tablet": 750px,
+    "desktop": 1440px
+);
+
+@mixin breakpoints($size) {
+    @media screen and (max-width: map-get($breakpoint-size, $size)) {
+        @content
+    }
+}
+
+.grid-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    @include breakpoints("tablet") {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    }
+}
+
+/* Grid Item Styles Start Here */
+.item{
+    height: 600px;
+
+    @include breakpoints("tablet") {
+        height: 550px;
+    }
+
+    @include breakpoints("mobile") {
+        height: 500px;
+
+        text-align: center;
+    }
+}
+
+.item > h2{
+    margin-right: 40%;
+
+    font-size: 2rem;
+
+    @include breakpoints("mobile") {
+        margin-right: 0;
+    }
+}
+
+.item>h2, .item>h3{
+    font-family: "Fraunces";
+    font-weight: 900;
+}
+
+.item > h3{
+    font-size: 1.5rem;
+}
+
+.item > p{
+    margin-top: 5%;
+
+    color: var(--transform-text-color);
+
+    font-family: "Barlow";
+}
+
+.item-1{
+    @include breakpoints("tablet") {
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+}
+
+.item-2{
+    @include breakpoints("tablet") {
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+}
+
+.item-3{
+    @include breakpoints("tablet") {
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+}
+
+.item-4{
+    @include breakpoints("tablet") {
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+}
+
+.item-5{
+    @include breakpoints("tablet") {
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+}
+
+.item-6{
+    @include breakpoints("tablet") {
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+}
+
+.item-1, .item-4{
+    padding-left: 15%;
+    padding-top: 20%;
+
+    @include breakpoints("mobile") {
+        padding-left: 0;
+        padding-top: 0;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.item-1>p, .item-4>p{
+    margin-right: 30%;
+
+    @include breakpoints("mobile") {
+        margin-right: 0;
+    }
+}
+
+.item-5, .item-6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.item-5>p, .item-6>p{
+    width: 50%;
+
+    margin-bottom: 10%;
+
+    text-align: center;
+
+    @include breakpoints("mobile") {
+        width: 100%;
+    }
+}
+
+.item-5 > p{
+    color: var(--graphic-design-text-color);
+}
+
+.item-6 > p{
+    color: var(--photography-text-color)
+}
+
+.grid-section a{
+    margin-top: 5%;
+
+    color: var(--grid-link-text-color);
+
+    font-family: "Fraunces";
+    font-weight: 700;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    display: inline-block;
+
+    @include breakpoints("mobile") {
+        width: fit-content;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        display: block;
+    }
+}
+
+.transform-link{
+    border-bottom: 5px solid var(--yellow);
+}
+
+.transform-link:hover{
+    border-bottom: 5px solid var(--yellow-hover);
+}
+
+.stand-out-link{
+    border-bottom: 5px solid var(--soft-red);
+}
+
+.stand-out-link:hover{
+    border-bottom: 5px solid var(--soft-red-hover);
+}
+/* Grid Item Styles Start Here */
+
+/* Grid Section background Image Styles Start Here */
+.transform-bg-img{
+    background-image: url("../images/desktop/image-transform.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include breakpoints("mobile") {
+        background-image: url("../images/mobile/image-transform.jpg");
+    }
+}
+
+.stand-out-img-bg{
+    background-image: url("../images/desktop/image-stand-out.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include breakpoints("mobile") {
+        background-image: url("../images/mobile/image-stand-out.jpg");
+    }
+}
+
+.graphic-design-bg-img{
+    background-image: url("../images/desktop/image-graphic-design.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include breakpoints("mobile") {
+        background-image: url("../images/mobile/image-graphic-design.jpg");
+    }
+}
+
+.photography-bg-img{
+    background-image: url("../images/desktop/image-photography.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include breakpoints("mobile") {
+        background-image: url("../images/mobile/image-photography.jpg");
+    }
+}
+/* Grid Section background Image Styles End Here */

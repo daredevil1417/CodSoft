@@ -1,0 +1,224 @@
+$breakpoint-size: (
+    "mobile": 375px,
+    "tablet": 750px,
+    "desktop": 1440px
+);
+
+@mixin breakpoints($size) {
+    @media screen and (max-width: map-get($breakpoint-size, $size)) {
+        @content
+    }
+}
+
+header{
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+}
+
+/* Header Background Image Section Styles Start Here */
+.header-img{
+    height: 1200px;
+    background-image: url("../images/desktop/image-header.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    display: flex;flex-direction: column;
+    align-items: center;
+
+    @include breakpoints("tablet") {
+        height: 700px;
+        background-image: url("../images/mobile/image-header.jpg");
+        background-position: bottom;
+    }
+
+    @include breakpoints("mobile") {
+        height: 600px;
+        background-image: url("../images/mobile/image-header.jpg");
+        background-position: bottom;
+    }
+}
+
+.header-heading{
+    margin-top: 13%;
+
+    color: var(--white);
+
+    font-family: "Fraunces";
+    font-weight: 900;
+    font-size: 3.5rem;
+
+    text-transform: uppercase;
+
+    @include breakpoints("tablet") {
+        margin-top: 22%;
+
+        font-size: 1.9rem;
+    }
+
+    @include breakpoints("mobile") {
+        margin-top: 25%;
+
+        font-size: 1.7rem;
+    }
+}
+
+.arrow-icon{
+    margin-top: 7%;
+}
+/* Header Background Image Section Styles End Here */
+
+/* List and Link Styles Start Here */
+header a{
+    display: block;
+
+    color: var(--white);
+
+    font-family: "Barlow";
+
+    text-decoration: none;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+}
+/* List and Link Styles End Here */
+
+/* Nav Bar Styles Start Here */
+.nav-bar{
+    position: absolute;
+    right: 1%;
+}
+
+.nav-bar>ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 70px;
+    padding-left: 0;
+
+    @include breakpoints("tablet") {
+        display: none;
+    }
+
+    @include breakpoints("mobile") {
+        display: none;
+    }
+}
+
+.nav-contact{
+    padding: 5px 10px;
+
+    background-color: var(--white);
+    color: var(--very-dark-se-saturated-blue);
+
+    border-radius: 20px;
+
+    font-family: "Fraunces";
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-contact:hover{
+    background-color: var(--white-hover);
+}
+/* Nav Bar Styles End Here */
+
+/* Logo Styles Start Here */
+.logo{
+    position: absolute;
+    left: 1%;
+}
+
+.logo-img{
+    display: block;
+}
+/* Logo Styles End Here */
+
+/* Toggle Button and Drop Down Menu Styles Start Here */
+.toggle-btn{
+    position: absolute;
+    right: 1%;
+
+    display: none;
+
+    @include breakpoints("tablet") {
+        display: block;
+    }
+
+    @include breakpoints("mobile") {
+        display: block;
+    }
+}
+
+.drop-down-menu{
+    width: 50%;
+
+    background-color: white;
+
+    position: fixed;
+    right: 5%;
+    top: 15%;
+
+    display: none;
+
+    @include breakpoints("mobile") {
+        width: 90%;
+    }
+}
+
+.drop-down-menu.open{
+    padding: 30px;
+
+    display: block;
+}
+
+.drop-down-menu>ul{
+    padding-left: 0px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    gap: 20px;
+}
+
+.drop-down-menu-link{
+    color: hsl(232, 10%, 55%);
+
+    font-family: "Barlow";
+    font-weight: 600;
+    font-size: 0.8rem;
+
+    text-decoration: none;
+}
+
+.drop-down-menu-contact{
+    padding: 5px 10px;
+
+    background-color: hsl(51, 100%, 49%);
+
+    border-radius: 20px;
+
+    font-family: "Fraunces";
+    font-weight: 700;
+    font-size: 0.8rem;
+
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.drop-down-menu-contact:hover{
+    background-color: var(--yellow);
+}
+/* Toggle Button and Drop Down Menu Styles End Here */

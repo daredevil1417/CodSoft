@@ -1,0 +1,36 @@
+@use "./header-styles";
+@use "./grid-section-styles";
+@use "./review-section-styles";
+@use "./only-bg-img-styles";
+@use "./footer-styles";
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    //border: 1px solid black;
+}
+
+html{
+    font-size: 18px;
+}
+
+:root{
+    --soft-red: hsla(7, 99%, 70%, 0.5);
+    --soft-red-hover: hsl(7, 99%, 70%);
+    --yellow: hsla(51, 100%, 49%, 0.5);
+    --yellow-hover: hsl(51, 100%, 49%);
+    --graphic-design-text-color: hsl(167, 40%, 24%);
+    --photography-text-color: hsl(198, 62%, 26%);
+    --footer-bg-color: hsla(168, 34%, 41%, 0.7);
+
+    --grid-link-text-color: hsl(212, 27%, 19%);
+    --reviewer-remarks-text-color: hsl(213, 9%, 39%);
+    --transform-text-color: hsl(232, 10%, 55%);
+    --reviewer-position-text-color: hsl(210, 4%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --white-hover: hsla(0, 0%, 100%, 0.4);
+}
+
+body{
+    margin: 0;
+}

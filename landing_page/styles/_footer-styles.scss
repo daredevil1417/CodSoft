@@ -1,0 +1,98 @@
+$breakpoint-size: (
+    "mobile": 375px,
+    "tablet": 750px,
+    "desktop": 1440px
+);
+
+@mixin breakpoints($size) {
+    @media screen and (max-width: map-get($breakpoint-size, $size)) {
+        @content
+    }
+}
+
+.footer-section{
+    height: 300px;
+
+    background-color: var(--footer-bg-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container{
+    width: 40%;
+
+    @include breakpoints("tablet") {
+        width: 90%;
+    }
+}
+
+/* Footer Heading Styles Start Here */
+.footer-heading{
+    color: hsl(167, 40%, 24%);
+
+    font-family: "Barlow";
+    font-size: 2rem;
+    font-weight: 900;
+
+    text-align: center;
+}
+/* Footer Heading Styles End Here */
+
+/* Footer Link Styles Start Here */
+.footer-links-container{
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer-link{
+    color: hsl(198, 62%, 26%);
+
+    font-family: "Barlow";
+    font-weight: 600;
+
+    text-decoration: none;
+
+    display: block;
+}
+
+.footer-link:hover{
+    color: var(--white);
+}
+/* Footer Link Styles End Here */
+
+/* Footer Social Link Styles Start Here */
+.footer-social-links-container{
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.footer-social-link{
+    width: 20px;
+
+    text-decoration: none;
+
+    display: block;
+}
+
+.footer-social-link > img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+.footer-social-link > img:hover{
+    opacity: 0.5;
+}
+/* Footer Social Link Styles End Here */
